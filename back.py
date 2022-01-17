@@ -240,7 +240,8 @@ def get_user_favorites(userId):
     except Error as err:
         print(err)
         return False
-
+def genres_help(gen: str, limit: int):
+    pass
 
 #ВЫВОД ИНФОРМАЦИИ
 def get_columInfo_by_songid(songId: list, table:str, column: str, addCond: str = 'TRUE'): #только 1 столбец
@@ -271,3 +272,4 @@ def get_full_info_songs_by_id(songId: list, userId: int = None) -> json:
             }
         )
     return json.dumps(res)
+print(get_filtred_songs(userid='NULL'))
