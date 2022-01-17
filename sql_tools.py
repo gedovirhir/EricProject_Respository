@@ -5,6 +5,7 @@ def get_conn_cursor(path = "bd/main_bd.sqlite") -> tuple:
     return (conn, conn.cursor())
 def query_exec(query, path = "bd/main_bd.sqlite"):
     conn, c = get_conn_cursor(path)
+    c.execute("PRAGMA foreign_keys = ON;")
     c.execute(query)
     res = c.fetchall()
     conn.commit()
