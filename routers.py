@@ -74,9 +74,8 @@ def deleteSong():
 @app.route('/admin/deleteUser')
 def delUser():
     r = request.args
-    usId = userId(r['username'])
     return doF(back.delete_user(
-        usId
+        r['username']
     ))
 @app.route('/admin/getAllUsers')
 def getAllUsers():
