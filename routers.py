@@ -95,7 +95,7 @@ def giveAdminRoot():
 @app.route('/genre/help')
 def genreHelp():
     r = request.args
-    return (back.genres_help(
+    return str((back.genres_help(
         r['text'],
         r['limit']
-    ))
+    )))
