@@ -107,7 +107,7 @@ def delete_user(username: str):
     try:
         query_exec(
             f"""
-            DELETE FROM users WHERE username = {username};
+            DELETE FROM users WHERE username = '{username}';
             """
         )
         return True
