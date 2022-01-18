@@ -54,6 +54,7 @@ const Admin: FC<AdminProps> = () => {
         <span className={'user-id'}></span>
         <span className={'user-login'}>Логин: {curr.username}</span>
         <span className={'user-password'}>Пароль: {curr.password}</span>
+        <span className={'user-password'}>ID: {curr.userId}</span>
         <button className={'admin-userRemove'} onClick={() => deleteUser(curr.username)}>X</button>
       </div>);
       return acc;
