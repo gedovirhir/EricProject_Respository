@@ -242,6 +242,7 @@ def get_user_favorites(userId):
         print(err)
         return False
 def genres_help(gen: str, limit: int):
+    limit = int(limit)
     f = open("bd/genresReg.txt", "r")
     genrs = (f.read()).split(',')
     res = []
@@ -282,4 +283,3 @@ def get_full_info_songs_by_id(songId: list, userId: int = None) -> json:
             }
         )
     return json.dumps(res)
-print(genres_help('a',5))
