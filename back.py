@@ -143,7 +143,7 @@ def addAdmin(username: str):
             """
         )
         return True
-    except Error as err:
+    except:
         return False 
 
 #ПОИСК ПЕСЕН 
@@ -205,8 +205,7 @@ def get_user_id(username: str):
             """
         )
         return userId[0][0]
-    except Error as err:
-        print(err)
+    except:
         return False
 def get_allUsers(offset: int = 0, limit: int = 20):
     offset = int(offset)
@@ -284,5 +283,3 @@ def get_full_info_songs_by_id(songId: list, userId: int = None) -> json:
             }
         )
     return json.dumps(res)
-
-print(get_filtred_songs('NULL','NULL','NULL',1,'0','20'))
