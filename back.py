@@ -272,4 +272,3 @@ def get_full_info_songs_by_id(songId: list, userId: int = None) -> json:
             }
         )
     return json.dumps(res)
-print(get_filtred_songs(userid='NULL'))

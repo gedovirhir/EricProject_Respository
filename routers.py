@@ -20,7 +20,9 @@ def doF(bol):
     if bol: return OK
     return ERR
 def userId(username):
-    return back.get_user_id(username)
+    if username and username != 'NULL':
+        return back.get_user_id(username)
+    return username
 
 @app.route('/song/add')
 def addSong():
@@ -32,12 +34,12 @@ def addSong():
 @app.route('/song/getFiltred')
 def getFiltredSongs():
     r = request.args
-    print(r['genres'])
+    usId = userId(r['username'])
     return back.get_filtred_songs(
         r['name'],
         r['artist'],
         r['genres'],
-        r['userid'],
+        r[usId],
         r['offset'],
         r['limit']
     )
