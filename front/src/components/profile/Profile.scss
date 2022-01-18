@@ -1,0 +1,43 @@
+.profile {
+  display: flex;
+  padding: 50px 50px;
+  flex-direction: column;
+
+  &-name {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 30px;
+  }
+
+  &-filmsAmount {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  &-lastFilms {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  &-signout {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 10px;
+    transition: .5s;
+
+    &:hover {
+      color: white;
+      transition: .5s;
+      background-color: red;
+    }
+  }
+
+  &-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
