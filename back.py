@@ -210,7 +210,6 @@ def get_user_id(username: str):
         return False
 def get_allUsers(offset: int = 0, limit: int = 20):
     offset = int(offset)
-    offset += 610
     res = query_exec(
         f"""
             SELECT userId,username,password FROM users 
