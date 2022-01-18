@@ -1,0 +1,349 @@
+.main {
+  display: flex;
+  height: 100vh;
+  justify-content: space-between;
+  padding: 0 15vw;
+
+  &-signout {
+    color: red;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 20px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  &-sendFilters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-searchFilter {
+    margin-bottom: 15px;
+    position: relative;
+  }
+
+  &-suggestedWords {
+    background-color: #F2F2F2;
+    top: 80px;
+    z-index: 999;
+    position: absolute;
+    min-height: 100px;
+    width: calc(100% - 10px);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+  }
+
+  &-suggestedItem {
+    margin-bottom: 5px;
+    transition: .5s;
+    font-weight: bold;
+    * > {
+      pointer-events: none;
+    }
+  }
+
+  &-suggestedLine {
+    height: 1px;
+    border: 0px;
+    background-color: white;
+    width: 75%;
+  }
+
+  &-name {
+    font-size: 20px;
+  }
+
+  &-button {
+    height: 35px;
+    width: 70%;
+    border-radius: 5px;
+    color: white;
+    background-color: rgba(56, 110, 206, 0.71);
+  }
+
+  &-search {
+    width: 100%;
+    height: 35px;
+    border: 0px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #F2F2F2;
+  }
+
+  &-yearSearch {
+    font-size: 16px;
+    height: 30px;
+  }
+
+  &-filters {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  &-selectFilter {
+    height: 30px;
+    margin-bottom: 10px;
+  }
+
+  &-songs {
+    width: 100%;
+    padding: 20px;
+    margin-left: 15px;
+    border-left: 1px solid gray;
+  }
+
+  &-adminPage {
+    margin: 0 20px;
+    color: red;
+  }
+
+  &-helpersButtons {
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &-stared {
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &-checkbox {
+    --background: #fff;
+    --border: #D1D6EE;
+    --border-hover: #BBC1E1;
+    --border-active: rgba(56, 110, 206, 0.71);
+    --tick: #fff;
+    position: relative;
+    margin-right: 10px;
+    input,
+    svg {
+      width: 21px;
+      height: 21px;
+      display: block;
+    }
+    input {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      position: relative;
+      outline: none;
+      background: var(--background);
+      border: none;
+      margin: 0;
+      padding: 0;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: box-shadow .3s;
+      box-shadow: inset 0 0 0 var(--s, 1px) var(--b, var(--border));
+      &:hover {
+        --s: 2px;
+        --b: var(--border-hover);
+      }
+      &:checked {
+        --b: var(--border-active);
+      }
+    }
+    svg {
+      pointer-events: none;
+      fill: none;
+      stroke-width: 2px;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke: var(--stroke, var(--border-active));
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 21px;
+      height: 21px;
+      transform: scale(var(--scale, 1)) translateZ(0);
+    }
+    &.path {
+      input {
+        &:checked {
+          --s: 2px;
+          transition-delay: .4s;
+          & + svg {
+            --a: 16.1 86.12;
+            --o: 102.22;
+          }
+        }
+      }
+      svg {
+        stroke-dasharray: var(--a, 86.12);
+        stroke-dashoffset: var(--o, 86.12);
+        transition: stroke-dasharray .6s, stroke-dashoffset .6s;
+      }
+    }
+    &.bounce {
+      --stroke: var(--tick);
+      input {
+        &:checked {
+          --s: 11px;
+          & + svg {
+            animation: bounce .4s linear forwards .2s;
+          }
+        }
+      }
+      svg {
+        --scale: 0;
+      }
+    }
+
+    @keyframes bounce {
+      50% {
+        transform: scale(1.2);
+      }
+      75% {
+        transform: scale(.9);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    html {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    * {
+      box-sizing: inherit;
+      &:before,
+      &:after {
+        box-sizing: inherit;
+      }
+    }
+
+    // Center & dribbble
+    body {
+      min-height: 100vh;
+      display: flex;
+      font-family: 'Roboto', Arial;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: #F6F8FF;
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-gap: 24px;
+      }
+      .dribbble {
+        position: fixed;
+        display: block;
+        right: 20px;
+        bottom: 20px;
+        img {
+          display: block;
+          height: 28px;
+        }
+      }
+      .twitter {
+        position: fixed;
+        display: block;
+        right: 64px;
+        bottom: 14px;
+        svg {
+          width: 32px;
+          height: 32px;
+          fill: #1da1f2;
+        }
+      }
+    }
+  }
+}
+
+.mainInfo {
+  display: flex;
+  align-items: center;
+
+  &-text {
+    margin: 0 10px;
+    font-size: 1.1rem;
+  }
+
+  img {
+    width: 36px;
+    background-color: #0d92e5;
+    border-radius: 40px;
+  }
+}
+
+.song {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  border: 1px solid gray;
+  padding: 10px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+
+  &-title {
+    font-size: 24px;
+  }
+
+  &-id {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  &-buttons {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 10px;
+    right: 10px;
+  }
+
+  &-star {
+    border: 1px solid goldenrod;
+    padding: 5px;
+    border-radius: 5px;
+    transition: .5s;
+
+    &:hover {
+      background-color: goldenrod;
+      color: white;
+      transition: .5s;
+    }
+  }
+
+  &-stared {
+    border: 1px solid goldenrod;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: goldenrod;
+    color: white;
+  }
+}
+
+.tagsInput {
+  &-blueColored {
+    color: white !important;
+    background-color: #0d92e5 !important;
+    border: 0px;
+  }
+
+  &--focused {
+    border: 1px solid #0d92e5 !important;
+  }
+}
+
+input {
+  &:focus {
+    border: 1px solid rgba(56, 110, 206, 0.71);
+  }
+}

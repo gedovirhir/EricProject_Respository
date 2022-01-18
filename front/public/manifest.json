@@ -1,0 +1,13 @@
+{
+  "short_name": "React App",
+  "name": "Create React App Sample",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "icons": {
+    "128": "logo192.png"
+  },
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
