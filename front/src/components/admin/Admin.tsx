@@ -54,7 +54,12 @@ const Admin: FC<AdminProps> = () => {
   }
 
   async function addSong() {
-    return await fetch(`http://localhost:8080/song/add?name=${inputs.songName}&artist=${inputs.songArtist}&genres=${inputs.songGenre}`);
+    await fetch(`http://localhost:8080/song/add?name=${inputs.songName}&artist=${inputs.songArtist}&genres=${inputs.songGenre}`);
+    setInputs({
+      songName: '',
+      songArtist: '',
+      songGenre: ''
+    });
   }
 
   async function searchGenre(e: any) {
