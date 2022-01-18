@@ -92,3 +92,10 @@ def giveAdminRoot():
     return doF(back.addAdmin(
         r['username']
     ))
+@app.route('/genre/help')
+def genreHelp():
+    r = request.args
+    return (back.genres_help(
+        r['text'],
+        r['limit']
+    ))

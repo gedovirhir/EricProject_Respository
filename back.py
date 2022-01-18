@@ -1,3 +1,4 @@
+from cProfile import label
 from getpass import getuser
 from os import path, terminal_size
 import sqlite3
@@ -241,7 +242,16 @@ def get_user_favorites(userId):
         print(err)
         return False
 def genres_help(gen: str, limit: int):
-    pass
+    f = open("bd/genresReg.txt", "r")
+    genrs = (f.read()).split(',')
+    res = []
+    j = 0
+    for i in genrs:
+        if j >= limit: break
+        if gen in i:
+            res.append(i)
+            j += 1
+    return res
 
 #ВЫВОД ИНФОРМАЦИИ
 def get_columInfo_by_songid(songId: list, table:str, column: str, addCond: str = 'TRUE'): #только 1 столбец
@@ -272,3 +282,4 @@ def get_full_info_songs_by_id(songId: list, userId: int = None) -> json:
             }
         )
     return json.dumps(res)
+print(genres_help('a',5))
