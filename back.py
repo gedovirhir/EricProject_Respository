@@ -252,7 +252,8 @@ def genres_help(gen: str, limit: int):
         if gen in i:
             res.append(i)
             j += 1
-    return json.dumps(res)
+
+    return json.dumps({"genres" : res})
 
 #ВЫВОД ИНФОРМАЦИИ
 def get_columInfo_by_songid(songId: list, table:str, column: str, addCond: str = 'TRUE'): #только 1 столбец
