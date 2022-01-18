@@ -14,7 +14,7 @@
     align-items: center;
     height: 70px;
     padding: 0 20px;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid #F2F2F2;
   }
 
   &-sendFilters {
@@ -24,6 +24,7 @@
   }
 
   &-searchFilter {
+    width: 100%;
     margin-bottom: 15px;
     position: relative;
   }
