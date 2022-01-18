@@ -34,13 +34,14 @@ const Admin: FC<AdminProps> = () => {
   }
 
   async function deleteUser(username: string) {
-    await getUsers();
     return await fetch(`http://localhost:8080/admin/deleteUser?username=${username}`);
+    await getUsers();
+
   }
 
   async function deleteSongById(songToDelete: number) {
     await fetch(`http://localhost:8080/admin/deleteSong?songId=${songToDelete}`);
-    searchSongs();
+    await searchSongs();
   }
 
   async function promoteUserById() {
