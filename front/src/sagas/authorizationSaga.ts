@@ -15,7 +15,7 @@ function* signInWorker(action: IAction) {
       yield put(setSigninErrorMsg('Введены некорректные данные'));
     }
 
-    localStorage.setItem('isAdmin', String(authorizationData.isAdmin!));
+    localStorage.setItem('isAdmin', authorizationData.isAdmin as any !== 'false' ? 'true' : '');
     if (authorizationData?.message === 'success') {
       localStorage.setItem('login', action.payload.login);
       localStorage.setItem('password', action.payload.password);

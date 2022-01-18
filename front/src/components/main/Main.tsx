@@ -53,9 +53,7 @@ export default function Main() {
                   className={`song-star ${isSongStared ? 'song-stared' : '' }`}>В избранное</button>
         </div>
         <span className={'song-field song-title'}>{curr.name}</span>
-        <span className={'song-field song-genres'}>Жанры: {curr.genres}</span>
-        <span className={'song-field song-year'}>Год выпуска: {curr.year}</span>
-        <span className={'song-field song-tags'}>Теги: {curr.tags}</span>
+        <span className={'song-field song-genres'}>Имя исполнителя: {curr.artist}</span>
       </div>);
       return acc;
     }, []));
@@ -93,6 +91,7 @@ export default function Main() {
     <>
       <header className={'main-header'}>
           <span className={'main-profilePage'}>{localStorage.getItem('login')}</span>
+          <h2 className={'promusic'}>ПРО-МЬЮЗИК</h2>
         <div className={'main-helpersButtons'}>
           {isAdmin &&
           <Link to={'/admin'}>
