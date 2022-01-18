@@ -34,6 +34,7 @@ const Admin: FC<AdminProps> = () => {
   }
 
   async function deleteUser(username: string) {
+    await getUsers();
     return await fetch(`http://localhost:8080/admin/deleteUser?username=${username}`);
   }
 
@@ -46,20 +47,20 @@ const Admin: FC<AdminProps> = () => {
     return await fetch(`http://localhost:8080/admin/giveAdminRoot?username=${userToPromote}`);
   }
 
+  async function getUsers() {
+    const users: [] = await fetch(`http://localhost:8080/admin/getAllUsers?offset=0&limit=20`).then((response: any) => response.json());
+    setUsers(users.reduce((acc: any, curr: any) => {
+      acc.push(<div className={'user'}>
+        <span className={'user-id'}></span>
+        <span className={'user-login'}>Логин: {curr.username}</span>
+        <span className={'user-password'}>Пароль: {curr.password}</span>
+        <button className={'admin-userRemove'} onClick={() => deleteUser(curr.username)}>X</button>
+      </div>);
+      return acc;
+    }, []));
+  }
+
   useEffect(() => {
-    // @ts-ignore
-    async function getUsers() {
-      const users: [] = await fetch(`http://localhost:8080/admin/getAllUsers?offset=0&limit=20`).then((response: any) => response.json());
-      setUsers(users.reduce((acc: any, curr: any) => {
-        acc.push(<div className={'user'}>
-          <span className={'user-id'}></span>
-          <span className={'user-login'}>Логин: {curr.username}</span>
-          <span className={'user-password'}>Пароль: {curr.password}</span>
-          <button className={'admin-userRemove'} onClick={() => deleteUser(curr.username)}>X</button>
-        </div>);
-        return acc;
-      }, []));
-    }
     getUsers();
   }, []);
 
