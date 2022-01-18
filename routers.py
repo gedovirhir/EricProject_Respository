@@ -99,3 +99,12 @@ def genreHelp():
         r['text'],
         r['limit']
     ))
+@app.route('/fav/addSong')
+def addSongToFav():
+    r = request.args
+    
+    return doF(back.add_song_to_favorite(
+        userId(r['username']),
+        r['songId'],
+        r['label']
+    ))
