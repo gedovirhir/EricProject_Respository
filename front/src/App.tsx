@@ -1,5 +1,5 @@
 import './App.scss';
-import {Route, BrowserRouter, Routes} from "react-router-dom";
+import {Route, BrowserRouter, Routes, HashRouter} from "react-router-dom";
 import useReduxStatePropertie from "./hooks/useReduxStatePropertie";
 import { useMemo, useEffect } from "react";
 import Main from "./components/main";
@@ -24,7 +24,7 @@ function App() {
    }, [ ]);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       {
         isLoaderNecessary ?
           <CustomSpinner color={'primary'}/>
@@ -35,7 +35,7 @@ function App() {
             { content }
           </Routes>
       }
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
