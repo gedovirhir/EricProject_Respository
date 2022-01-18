@@ -278,8 +278,8 @@ def get_full_info_songs_by_id(songId: list, userId: int = None) -> json:
     for i in range(len(songId)):
         res.append(
             {
-                'movieId' : songId[i],
-                'title' : name[i],
+                'songId' : songId[i],
+                'name' : name[i],
                 'artist' : artist[i],
                 'genres' : genres[i],
             }
