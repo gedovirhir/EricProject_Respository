@@ -74,6 +74,7 @@ def deleteSong():
 @app.route('/admin/deleteUser')
 def delUser():
     r = request.args
+    print(r['username'])
     return doF(back.delete_user(
         r['username']
     ))
