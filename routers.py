@@ -39,7 +39,7 @@ def getFiltredSongs():
         r['name'],
         r['artist'],
         r['genres'],
-        r[usId],
+        usId,
         r['offset'],
         r['limit']
     )

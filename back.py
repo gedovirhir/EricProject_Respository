@@ -148,6 +148,7 @@ def addAdmin(username: str):
 
 #ПОИСК ПЕСЕН 
 def get_filtred_songs(name: str = None, artist: str = None, genres: list = None, userid: int = None, offset: int = 0, limit: int = 20) -> json: # where ind > offset(0) top limit
+    print("go")
     try:
         prs = lambda x: parse_tools.query_contraint_if_not_null_to_list(parse_tools.query_constraint_from_none_to_null(x))
         name = query_constraint_title_normalize(name, True)
@@ -284,3 +285,5 @@ def get_full_info_songs_by_id(songId: list, userId: int = None) -> json:
             }
         )
     return json.dumps(res)
+
+print(get_filtred_songs('NULL','NULL','NULL',1,'0','20'))
